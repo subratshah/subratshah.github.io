@@ -1,0 +1,54 @@
+/* Design tokens — "Cyan night" palette with green accent (see .agents/README.md) */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/jetbrains-mono-latin-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('../fonts/jetbrains-mono-latin-700.woff2') format('woff2');
+}
+
+:root {
+  --bg: #101215;
+  --bg2: #0b0c0e;
+  --ln: #2a2f36;
+  --ln2: #3a4048;
+  --fg: #e8e8e3;
+  --tx: #c9ccd1;
+  --mu: #9aa0a8;
+  --mu2: #7a7f87;
+  --ac: #6fe3a0;
+  --ph: #4a515a;
+  --r: 0px;
+  --ms: 0.6; /* font scale for the main content column; sized so one case study fits the window */
+  --pz: 1.25; /* scales everything inside the phone screen */
+  --phw: 3px;
+  --phr: 22px;
+  /* one accent per case-study sub-section */
+  --k-context: #7cc4ff;
+  --k-myrole: #6fe3a0;
+  --k-constraints: #f2b45c;
+  --k-architecture: #a99bff;
+  --k-rollout: #ff7a66;
+  --k-outcome: #f08fc0;
+  --k-next: #4fd1d9;
+  --ff:'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  /* Phone "hi-fi" style (default). Remove these to get the outline wireframe look. */
+  --p-s1: color-mix(in oklch, var(--bg2) 88%, white);
+  --p-b: 1px solid color-mix(in oklch, var(--bg2) 80%, white);
+  --p-r: 10px;
+  --p-rw: 16px;
+  --p-fill: var(--ac);
+  --p-on: var(--bg2);
+  --p-tx: var(--mu);
+  --p-img: linear-gradient(135deg, color-mix(in oklch, var(--ac) 55%, black), color-mix(in oklch, var(--ac) 20%, black));
+  --p-ff: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --p-wall: linear-gradient(170deg, color-mix(in oklch, var(--ac) 22%, var(--bg2)), var(--bg2) 70%);
+}

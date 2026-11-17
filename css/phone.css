@@ -1,0 +1,109 @@
+/* Galaxy S23 Ultra proportions: 163.4 x 78.1 mm, flat sides, thin bezel, centered punch-hole camera. */
+.phone-wrap {
+  position: relative;
+  height: min(900px, calc(100vh / var(--z) - 66px), calc(100cqw / 0.478));
+  aspect-ratio: 78.1 / 163.4;
+  flex-shrink: 0;
+}
+/* side keys on the right edge: volume rocker above, power below */
+.phone-wrap .side { position: absolute; right: -3px; width: 3px; background: var(--ph); border-radius: 0 2px 2px 0; }
+.phone-wrap .vol { top: 19%; height: 12%; }
+.phone-wrap .pwr { top: 35%; height: 6.5%; }
+.phone {
+  height: 100%;
+  width: 100%;
+  border: var(--phw) solid var(--ph);
+  border-radius: var(--phr);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--bg2);
+  overflow: hidden;
+}
+/* black status bar across the full top edge; sits above screen content so wallpapers never run behind it */
+.p-status { zoom: var(--pz); position: relative; z-index: 2; flex-shrink: 0; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; margin: calc(-8px / var(--pz)) calc(-8px / var(--pz)) 0; padding: 9px 16px 8px; background: #000; font-size: 9px; font-weight: 700; color: var(--fg); }
+.p-sicons { display: flex; justify-content: flex-end; align-items: center; gap: 4px; }
+.phone .cam { width: 8px; height: 8px; border-radius: 50%; background: var(--ph); }
+.phone-screen { zoom: var(--pz); flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 7px; font-family: var(--p-ff, inherit); transition: opacity 100ms linear; position: relative; }
+.phone-screen.out { opacity: 0; }
+/* gesture-navigation pill (no nav buttons) */
+.p-gesture { flex-shrink: 0; height: 12px; display: flex; align-items: center; justify-content: center; }
+.p-gesture::before { content: ""; width: 32%; height: 3px; border-radius: 2px; background: var(--fg); opacity: .75; }
+.caption { font-size: 10px; color: var(--mu2); text-align: center; }
+
+/* shared screen parts */
+.p-bar { display: flex; justify-content: space-between; align-items: center; padding: 4px 2px 6px; font-size: 11px; font-weight: 700; color: var(--fg); }
+.p-bar small { font-size: 8px; font-weight: 400; color: var(--p-tx); }
+.p-card { background: var(--p-s1); border: var(--p-b); border-radius: var(--p-r); padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+.p-flat { padding: 7px 8px; flex-direction: row; align-items: center; gap: 8px; }
+.p-img { background: var(--p-img); border-radius: var(--p-r); flex-shrink: 0; }
+.p-dot { width: 20px; height: 20px; border-radius: 50%; background: var(--p-img); flex-shrink: 0; }
+.p-name { font-size: 9.5px; font-weight: 700; color: var(--fg); }
+.p-tx { font-size: 8px; color: var(--p-tx); }
+.p-txt { font-size: 9px; color: var(--fg); line-height: 1.35; }
+.p-col { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
+.p-line { display: flex; justify-content: space-between; padding: 6px 2px; border-bottom: 1px solid var(--ln); font-size: 9px; color: var(--fg); }
+.p-line em { font-style: normal; color: var(--p-tx); }
+.p-btn { background: var(--p-fill); border: 1px solid var(--ac); color: var(--p-on); border-radius: var(--p-r); padding: 9px; text-align: center; font-size: 10px; font-weight: 700; }
+.p-ghost { background: var(--p-s1); border: var(--p-b); border-radius: var(--p-r); padding: 8px; text-align: center; font-size: 9px; color: var(--p-tx); }
+.p-pill { font-size: 8px; padding: 2px 6px; border: 1px solid var(--ln2); border-radius: var(--p-r); color: var(--p-tx); }
+.p-pill.on { background: var(--p-fill); border-color: var(--ac); color: var(--p-on); }
+.p-row { display: flex; gap: 5px; align-items: center; }
+.p-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.p-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+.p-tiles span, .p-tabs span { font-size: 8.5px; padding: 7px 0; text-align: center; background: var(--p-s1); border: var(--p-b); border-radius: var(--p-r); color: var(--p-tx); }
+.p-tiles .on, .p-tabs .on { background: var(--p-fill); border-color: var(--ac); color: var(--p-on); }
+.p-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.p-tabs span { padding: 4px 0; font-size: 8px; }
+.p-num { font-size: 13px; font-weight: 700; color: var(--ac); }
+.p-note { font-size: 8px; color: var(--p-tx); line-height: 1.4; }
+.p-center { text-align: center; }
+.p-term { font-family: var(--ff); font-size: 8.5px; color: var(--p-tx); padding: 8px; display: flex; flex-direction: column; gap: 3px; }
+.p-term b { font-weight: 400; color: var(--ac); }
+.p-term u { text-decoration: none; color: var(--fg); }
+.p-bars { display: flex; flex-direction: column; gap: 6px; }
+.p-bar-row { display: flex; flex-direction: column; gap: 2px; font-size: 8px; color: var(--fg); }
+.p-bar-row div { display: flex; justify-content: space-between; }
+.p-bar-row code { font-family: var(--ff); }
+.p-track { height: 4px; background: var(--ln); border-radius: 2px; position: relative; }
+.p-track i { position: absolute; left: 0; top: 0; height: 4px; border-radius: 2px; background: var(--ln2); }
+.p-track i + i { background: var(--ac); }
+.p-sheet {
+  position: absolute; left: -10px; right: -10px; bottom: -10px; background: var(--bg2);
+  border-top: 1px solid var(--ac); border-radius: var(--p-r) var(--p-r) 0 0;
+  padding: 12px; display: flex; flex-direction: column; gap: 7px;
+}
+.p-wall { margin: 0 -10px -10px; padding: 16px 12px; background: var(--p-wall); flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.p-widget { border-radius: var(--p-rw); border-color: var(--ac); padding: 10px; gap: 7px; }
+.p-apps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 8px; margin-top: 4px; padding-bottom: 4px; }
+.p-apps div { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 7px; color: var(--p-tx); }
+.p-apps span { width: 30px; height: 30px; background: var(--p-s1); border: var(--p-b); border-radius: var(--p-r); }
+.p-offline { padding: 6px 8px; border: 1px dashed var(--ac); border-radius: var(--p-r); font-size: 8.5px; color: var(--ac); }
+.p-sending { font-size: 7.5px; color: var(--ac); border: 1px dashed var(--ac); padding: 1px 4px; border-radius: var(--p-r); }
+
+/* highlight the part of the screen that relates to the active sub-section, in that sub-section's color */
+.phone[data-sub="context"] { --hl: var(--k-context); }
+.phone[data-sub="myrole"] { --hl: var(--k-myrole); }
+.phone[data-sub="constraints"] { --hl: var(--k-constraints); }
+.phone[data-sub="architecture"] { --hl: var(--k-architecture); }
+.phone[data-sub="rollout"] { --hl: var(--k-rollout); }
+.phone[data-sub="outcome"] { --hl: var(--k-outcome); }
+.phone[data-sub="next"] { --hl: var(--k-next); }
+.phone[data-sub="context"] [data-hl~="context"],
+.phone[data-sub="myrole"] [data-hl~="myrole"],
+.phone[data-sub="constraints"] [data-hl~="constraints"],
+.phone[data-sub="architecture"] [data-hl~="architecture"],
+.phone[data-sub="rollout"] [data-hl~="rollout"],
+.phone[data-sub="outcome"] [data-hl~="outcome"],
+.phone[data-sub="next"] [data-hl~="next"] { outline: 1px solid var(--hl); outline-offset: 2px; }
+
+/* stack screen: full-width layers */
+.p-layers { display: flex; flex-direction: column; gap: 4px; flex: 1; min-height: 0; padding-bottom: 6px; }
+.p-layer { flex: 1; max-height: 66px; border: 1px solid; border-radius: var(--p-r); padding: 6px 10px; display: flex; flex-direction: column; justify-content: center; gap: 3px; }
+.p-layer b { font-size: 10px; color: var(--fg); }
+.p-layer span { font-size: 7.5px; color: var(--p-tx); }
+
+/* Android avatar used for every profile image */
+.p-av { display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: color-mix(in oklch, var(--bg2) 80%, white); flex-shrink: 0; overflow: hidden; }
+.p-av svg { width: 80%; height: 80%; }

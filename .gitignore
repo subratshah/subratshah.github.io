@@ -1,0 +1,18 @@
+# Personal / private files: keep out of the public repo
+# local assistant and preview-server config
+.claude/
+.agents/
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.swp
+
+# Secrets and logs
+.env
+.env.*
+*.log
+*.pem
+*.key
